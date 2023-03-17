@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Navbar from "./component/navigation/navbar";
+import { Route, Routes, useLocation } from "react-router-dom";
+import AboutUs from "./component/routers/about";
+import SignIn from "./component/authentication/signin";
+import Houses from "./component/routers/Houses";
+import Footer from "./component/fotter/footer";
+import { Fragment } from "react";
+import { useEffect } from "react";
+import Home from "./component/Home";
+// import HouseDetails from "./component/HouseDetails";
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[location])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+    <Routes>
+      <Route path="/" element={<Navbar />}>
+        <Route index element={<Home/>}/>
+        {/* <Route path="/house/:id" component={HouseDetails} /> */}
+        <Route path="Houses/*" element={<Houses />} />
+        <Route path="signin" element={<SignIn />} />
+        <Route path="about" element={<AboutUs />} />
+      </Route>
+    </Routes>
+    <Footer/>
+    </Fragment>
   );
 }
 
