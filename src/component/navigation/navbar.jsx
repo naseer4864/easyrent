@@ -1,11 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment} from "react";
 import { Link, Outlet } from "react-router-dom";
 
 
 
 
 const Navbar = () => {
-    const [isMobile, setIsMobile] = useState(false)
     return (
         <Fragment>
             <div className="mother-container">
@@ -13,16 +12,10 @@ const Navbar = () => {
                     <div className="logo">
                         <Link to="/" className="home-logo"><p>EASY<span>RENT</span></p></Link>
                     </div>
-                    <div className={isMobile ? "nav-links-mobile" : "nav-links"} onClick={() => setIsMobile(! isMobile)}>
+                    <div className= "nav-links">
                         <Link to="Houses">Properties</Link>
-                        <Link to="/signin">Sign in</Link>
-                        <Link to="/about">About Us</Link>
                     </div>
-                    <div className="mobile-menu" onClick={() => setIsMobile(!isMobile)}>
-                        {
-                            isMobile ? "X" : <i className="fas fa-bars"></i>
-                        }
-                    </div>
+                    
                 </div>
             </div>
             <Outlet />

@@ -3,6 +3,7 @@
 const HouseCard = ({ house }) => {
     const { name, price, imageUrl, address, type1, type2 } = house
     return (
+            
         <div className="house-card" >
             <img src={imageUrl} alt="pics" className="image-url" />
             <span className="address">{address}</span>
@@ -13,6 +14,7 @@ const HouseCard = ({ house }) => {
                 <h3>{type2}</h3>
             </div>
         </div>
+            
     );
 }
 

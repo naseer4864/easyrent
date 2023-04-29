@@ -8,7 +8,6 @@ import Footer from "./component/fotter/footer";
 import { Fragment } from "react";
 import { useEffect } from "react";
 import Home from "./component/Home";
-// import HouseDetails from "./component/HouseDetails";
 
 function App() {
   const location = useLocation();
@@ -20,10 +19,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Navbar />}>
         <Route index element={<Home/>}/>
-        {/* <Route path="/house/:id" component={HouseDetails} /> */}
         <Route path="Houses/*" element={<Houses />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="about" element={<AboutUs />} />
+        
       </Route>
     </Routes>
     <Footer/>
